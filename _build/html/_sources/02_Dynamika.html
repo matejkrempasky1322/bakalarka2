@@ -1,0 +1,682 @@
+
+<!DOCTYPE html>
+
+
+<html lang="sk" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Dynamika pohybu vozidla &#8212; Dokumentácia Interaktívna učebnica Fyziky 1.0</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=720ed60b" />
+    <link rel="stylesheet" type="text/css" href="../_static/styles/sphinx-book-theme.css?v=3c74b3bc" />
+    <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/documentation_options.js?v=06000db1"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/scripts/sphinx-book-theme.js?v=fab101a9"></script>
+    <script src="../_static/translations.js?v=e0cb49a9"></script>
+    <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = '_sources/02_Dynamika';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Hľadať" href="../search.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="sk"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search..."
+         aria-label="Search..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Dokumentácia Interaktívna učebnica Fyziky 1.0</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Hľadať" aria-label="Hľadať" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Hľadať</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Obsah:</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../01_Kinematika.html">Kinematika pohybu vozidla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../02_Dynamika.html">Dynamika pohybu vozidla</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../03_Termodynamika.html">Termodynamika spaľovacieho motora</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../04_Kmitanie.html">Kmitanie mechanickej sústavy</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../05_SymPy.html">Symbolická matematika v Jupyter Notebooku</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Stiahnite si túto stránku">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="../_sources/_sources/02_Dynamika.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Stiahnite si zdrojový súbor"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Tlač do PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button pst-navbar-icon"
+  title="Režim celej obrazovky"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button>
+
+
+<button class="btn btn-sm pst-navbar-icon search-button search-button__button pst-js-only" title="Hľadať" aria-label="Hľadať" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+</button>
+<button class="sidebar-toggle secondary-toggle btn btn-sm pst-navbar-icon" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Dynamika pohybu vozidla</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Obsah </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Dynamika-sa-zaoberá-príčinami-pohybu,-teda-silami-ktoré-pohyb-spôsobujú-alebo-brzdia.-V-tomto-notebooku-aplikujeme-Newtonove-zákony-na-reálne-vozidlo-a-skúmame-vzťah-medzi-silou,-hmotnosťou-a-zrýchlením.">Dynamika sa zaoberá príčinami pohybu, teda silami ktoré pohyb spôsobujú alebo brzdia. V tomto notebooku aplikujeme Newtonove zákony na reálne vozidlo a skúmame vzťah medzi silou, hmotnosťou a zrýchlením.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Teoretický-základ">Teoretický základ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Na-pohybujúce-sa-vozidlo-pôsobia-tri-hlavné-sily:">Na pohybujúce sa vozidlo pôsobia tri hlavné sily:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interaktívna-analýza-síl">Interaktívna analýza síl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Záver">Záver</a></li>
+</ul>
+</li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="Dynamika-pohybu-vozidla">
+<h1>Dynamika pohybu vozidla<a class="headerlink" href="#Dynamika-pohybu-vozidla" title="Link to this heading">#</a></h1>
+<section id="Dynamika-sa-zaoberá-príčinami-pohybu,-teda-silami-ktoré-pohyb-spôsobujú-alebo-brzdia.-V-tomto-notebooku-aplikujeme-Newtonove-zákony-na-reálne-vozidlo-a-skúmame-vzťah-medzi-silou,-hmotnosťou-a-zrýchlením.">
+<h2>Dynamika sa zaoberá príčinami pohybu, teda silami ktoré pohyb spôsobujú alebo brzdia. V tomto notebooku aplikujeme Newtonove zákony na reálne vozidlo a skúmame vzťah medzi silou, hmotnosťou a zrýchlením.<a class="headerlink" href="#Dynamika-sa-zaoberá-príčinami-pohybu,-teda-silami-ktoré-pohyb-spôsobujú-alebo-brzdia.-V-tomto-notebooku-aplikujeme-Newtonove-zákony-na-reálne-vozidlo-a-skúmame-vzťah-medzi-silou,-hmotnosťou-a-zrýchlením." title="Link to this heading">#</a></h2>
+<p>Pomocou interaktívnych sliderov môžeš meniť parametre vozidla a sledovať ako sa okamžite zmenia silové pomery aj výsledné zrýchlenie.</p>
+<section id="Teoretický-základ">
+<h3>Teoretický základ<a class="headerlink" href="#Teoretický-základ" title="Link to this heading">#</a></h3>
+</section>
+</section>
+<section id="Na-pohybujúce-sa-vozidlo-pôsobia-tri-hlavné-sily:">
+<h2>Na pohybujúce sa vozidlo pôsobia tri hlavné sily:<a class="headerlink" href="#Na-pohybujúce-sa-vozidlo-pôsobia-tri-hlavné-sily:" title="Link to this heading">#</a></h2>
+<p><strong>Hnacia sila motora:</strong></p>
+<div class="math notranslate nohighlight">
+\[F_{motor} = \frac{P}{v}\]</div>
+<p><strong>Aerodynamický odpor:</strong></p>
+<div class="math notranslate nohighlight">
+\[F_{vzduch} = \frac{1}{2} \cdot \rho \cdot C_d \cdot A \cdot v^2\]</div>
+<p><strong>Valivý odpor:</strong></p>
+<div class="math notranslate nohighlight">
+\[F_{valivý} = \mu \cdot m \cdot g\]</div>
+<p><strong>Výsledné zrýchlenie</strong> podľa Newtonovho druhého zákona:</p>
+<div class="math notranslate nohighlight">
+\[a = \frac{F_{motor} - F_{vzduch} - F_{valivý}}{m}\]</div>
+<p>Vozidlo dosiahne maximálnu rýchlosť keď <span class="math notranslate nohighlight">\(F_{motor} = F_{vzduch} + F_{valivý}\)</span>.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.patches</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">patches</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">ipywidgets</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">widgets</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">IPython.display</span><span class="w"> </span><span class="kn">import</span> <span class="n">display</span><span class="p">,</span> <span class="n">clear_output</span>
+
+<span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="n">plt</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;dark_background&#39;</span><span class="p">)</span>
+
+<span class="c1"># Fyzikálne konštanty</span>
+<span class="n">RHO</span> <span class="o">=</span> <span class="mf">1.225</span>   <span class="c1"># hustota vzduchu [kg/m³]</span>
+<span class="n">G</span>   <span class="o">=</span> <span class="mf">9.81</span>    <span class="c1"># gravitačné zrýchlenie [m/s²]</span>
+<span class="n">A</span>   <span class="o">=</span> <span class="mf">2.2</span>     <span class="c1"># čelná plocha vozidla [m²]</span>
+</pre></div>
+</div>
+</div>
+<section id="Interaktívna-analýza-síl">
+<h3>Interaktívna analýza síl<a class="headerlink" href="#Interaktívna-analýza-síl" title="Link to this heading">#</a></h3>
+<p>Nastav parametre vozidla pomocou sliderov a sleduj ako sa menia silové pomery aj výsledné zrýchlenie.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">kresli_diagram</span><span class="p">(</span><span class="n">ax</span><span class="p">,</span> <span class="n">F_m</span><span class="p">,</span> <span class="n">F_v</span><span class="p">,</span> <span class="n">F_val</span><span class="p">,</span> <span class="n">v_val</span><span class="p">):</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="o">-</span><span class="mi">7</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">3.5</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_aspect</span><span class="p">(</span><span class="s1">&#39;equal&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">axis</span><span class="p">(</span><span class="s1">&#39;off&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">)</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Silový diagram pri v = </span><span class="si">{</span><span class="n">v_val</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> km/h&#39;</span><span class="p">,</span>
+                 <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">pad</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+
+    <span class="c1"># Karoséria</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyBboxPatch</span><span class="p">(</span>
+        <span class="p">(</span><span class="o">-</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">),</span> <span class="mf">4.4</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">,</span>
+        <span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.2&quot;</span><span class="p">,</span>
+        <span class="n">linewidth</span><span class="o">=</span><span class="mi">2</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#777777&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#2d2d44&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Okná</span>
+    <span class="k">for</span> <span class="n">xo</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.9</span><span class="p">,</span> <span class="mf">0.2</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">patches</span><span class="o">.</span><span class="n">FancyBboxPatch</span><span class="p">(</span>
+            <span class="p">(</span><span class="n">xo</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">),</span> <span class="mf">1.3</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">,</span>
+            <span class="n">boxstyle</span><span class="o">=</span><span class="s2">&quot;round,pad=0.06&quot;</span><span class="p">,</span>
+            <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#444444&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#1a3a5c&#39;</span><span class="p">))</span>
+
+    <span class="c1"># Kolesá</span>
+    <span class="k">for</span> <span class="n">cx</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">),</span> <span class="mf">0.42</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#2a2a2a&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">3</span><span class="p">))</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">add_patch</span><span class="p">(</span><span class="n">plt</span><span class="o">.</span><span class="n">Circle</span><span class="p">((</span><span class="n">cx</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">),</span> <span class="mf">0.25</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">,</span> <span class="n">zorder</span><span class="o">=</span><span class="mi">4</span><span class="p">))</span>
+
+    <span class="c1"># Škálovanie šípok</span>
+    <span class="n">max_F</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">F_m</span><span class="p">,</span> <span class="n">F_v</span> <span class="o">+</span> <span class="n">F_val</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+    <span class="n">sc</span>    <span class="o">=</span> <span class="mf">4.0</span> <span class="o">/</span> <span class="n">max_F</span>
+
+    <span class="c1"># Hnacia sila - modrá šípka doprava</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="mf">2.2</span> <span class="o">+</span> <span class="n">F_m</span> <span class="o">*</span> <span class="n">sc</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00BFFF&#39;</span><span class="p">,</span>
+                                <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">2.2</span> <span class="o">+</span> <span class="n">F_m</span> <span class="o">*</span> <span class="n">sc</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;$F_</span><span class="se">{{</span><span class="s1">motor</span><span class="se">}}</span><span class="s1">$</span><span class="se">\n</span><span class="si">{</span><span class="n">F_m</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> N&#39;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00BFFF&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Aerodyn. odpor - červená šípka doľava</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.2</span> <span class="o">-</span> <span class="n">F_v</span> <span class="o">*</span> <span class="n">sc</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="o">-</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">0.75</span><span class="p">),</span>
+                <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF4444&#39;</span><span class="p">,</span>
+                                <span class="n">lw</span><span class="o">=</span><span class="mi">3</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span><span class="mi">20</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="o">-</span><span class="mf">2.2</span> <span class="o">-</span> <span class="n">F_v</span> <span class="o">*</span> <span class="n">sc</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">1.1</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;$F_</span><span class="se">{{</span><span class="s1">vzduch</span><span class="se">}}</span><span class="s1">$</span><span class="se">\n</span><span class="si">{</span><span class="n">F_v</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> N&#39;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF4444&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Valivý odpor - oranžová šípka nadol</span>
+    <span class="n">fvs</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">F_val</span> <span class="o">*</span> <span class="n">sc</span> <span class="o">*</span> <span class="mf">2.5</span><span class="p">,</span> <span class="mf">1.3</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">cx</span> <span class="ow">in</span> <span class="p">[</span><span class="o">-</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">1.5</span><span class="p">]:</span>
+        <span class="n">ax</span><span class="o">.</span><span class="n">annotate</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="p">,</span> <span class="n">xy</span><span class="o">=</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span> <span class="o">-</span> <span class="n">fvs</span><span class="p">),</span> <span class="n">xytext</span><span class="o">=</span><span class="p">(</span><span class="n">cx</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span><span class="p">),</span>
+                    <span class="n">arrowprops</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">arrowstyle</span><span class="o">=</span><span class="s1">&#39;-&gt;&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FFA500&#39;</span><span class="p">,</span>
+                                    <span class="n">lw</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">mutation_scale</span><span class="o">=</span><span class="mi">16</span><span class="p">))</span>
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.12</span> <span class="o">-</span> <span class="n">fvs</span> <span class="o">-</span> <span class="mf">0.4</span><span class="p">,</span>
+            <span class="sa">f</span><span class="s1">&#39;$F_</span><span class="se">{{</span><span class="s1">valivý</span><span class="se">}}</span><span class="s1">$ = </span><span class="si">{</span><span class="n">F_val</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> N&#39;</span><span class="p">,</span>
+            <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FFA500&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span> <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Výsledná sila</span>
+    <span class="n">F_res</span> <span class="o">=</span> <span class="n">F_m</span> <span class="o">-</span> <span class="n">F_v</span> <span class="o">-</span> <span class="n">F_val</span>
+    <span class="k">if</span> <span class="nb">abs</span><span class="p">(</span><span class="n">F_res</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">20</span><span class="p">:</span>
+        <span class="n">farba</span> <span class="o">=</span> <span class="s1">&#39;#00FF88&#39;</span> <span class="k">if</span> <span class="n">F_res</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;#FF4444&#39;</span>
+        <span class="n">smer</span>  <span class="o">=</span> <span class="s1">&#39;→  ZRÝCHLENIE&#39;</span> <span class="k">if</span> <span class="n">F_res</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="k">else</span> <span class="s1">&#39;←  SPOMALENIE&#39;</span>
+        <span class="n">text</span>  <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;Výsledná sila: </span><span class="si">{</span><span class="n">F_res</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> N   </span><span class="si">{</span><span class="n">smer</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">farba</span> <span class="o">=</span> <span class="s1">&#39;#FFD700&#39;</span>
+        <span class="n">text</span>  <span class="o">=</span> <span class="s1">&#39;Silová rovnováha  │  dosiahnutá $v_</span><span class="si">{max}</span><span class="s1">$&#39;</span>
+
+    <span class="n">ax</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">text</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="n">farba</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">ha</span><span class="o">=</span><span class="s1">&#39;center&#39;</span><span class="p">,</span>
+            <span class="n">fontweight</span><span class="o">=</span><span class="s1">&#39;bold&#39;</span><span class="p">,</span>
+            <span class="n">bbox</span><span class="o">=</span><span class="nb">dict</span><span class="p">(</span><span class="n">boxstyle</span><span class="o">=</span><span class="s1">&#39;round,pad=0.4&#39;</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#0d0d1a&#39;</span><span class="p">,</span>
+                      <span class="n">edgecolor</span><span class="o">=</span><span class="n">farba</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.9</span><span class="p">))</span>
+
+
+<span class="n">out</span> <span class="o">=</span> <span class="n">widgets</span><span class="o">.</span><span class="n">Output</span><span class="p">()</span>
+
+<span class="k">def</span><span class="w"> </span><span class="nf">zobraz</span><span class="p">(</span><span class="n">m</span><span class="p">,</span> <span class="n">P_kW</span><span class="p">,</span> <span class="n">Cd</span><span class="p">,</span> <span class="n">mu</span><span class="p">):</span>
+    <span class="n">P</span>     <span class="o">=</span> <span class="n">P_kW</span> <span class="o">*</span> <span class="mi">1000</span>
+    <span class="n">v</span>     <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">800</span><span class="p">)</span>
+    <span class="n">v_kmh</span> <span class="o">=</span> <span class="n">v</span> <span class="o">*</span> <span class="mf">3.6</span>
+
+    <span class="n">F_motor</span>  <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="n">v</span>
+    <span class="n">F_vzduch</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">RHO</span> <span class="o">*</span> <span class="n">Cd</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">v</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">F_valivý</span> <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">G</span> <span class="o">*</span> <span class="n">np</span><span class="o">.</span><span class="n">ones_like</span><span class="p">(</span><span class="n">v</span><span class="p">)</span>
+    <span class="n">F_odpor</span>  <span class="o">=</span> <span class="n">F_vzduch</span> <span class="o">+</span> <span class="n">F_valivý</span>
+    <span class="n">F_celk</span>   <span class="o">=</span> <span class="n">F_motor</span> <span class="o">-</span> <span class="n">F_odpor</span>
+    <span class="n">a</span>        <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">clip</span><span class="p">(</span><span class="n">F_celk</span> <span class="o">/</span> <span class="n">m</span><span class="p">,</span> <span class="o">-</span><span class="mi">25</span><span class="p">,</span> <span class="mi">25</span><span class="p">)</span>
+
+    <span class="n">idx_vmax</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">argmin</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">F_celk</span><span class="p">))</span>
+    <span class="n">v_max</span>    <span class="o">=</span> <span class="n">v_kmh</span><span class="p">[</span><span class="n">idx_vmax</span><span class="p">]</span>
+
+    <span class="c1"># Hodnoty pre silový diagram pri polovici v_max</span>
+    <span class="n">v_diag</span>   <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">v_max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">10</span><span class="p">)</span> <span class="o">/</span> <span class="mf">3.6</span>
+    <span class="n">F_m_diag</span> <span class="o">=</span> <span class="n">P</span> <span class="o">/</span> <span class="n">v_diag</span>
+    <span class="n">F_v_diag</span> <span class="o">=</span> <span class="mf">0.5</span> <span class="o">*</span> <span class="n">RHO</span> <span class="o">*</span> <span class="n">Cd</span> <span class="o">*</span> <span class="n">A</span> <span class="o">*</span> <span class="n">v_diag</span><span class="o">**</span><span class="mi">2</span>
+    <span class="n">F_val_d</span>  <span class="o">=</span> <span class="n">mu</span> <span class="o">*</span> <span class="n">m</span> <span class="o">*</span> <span class="n">G</span>
+
+    <span class="k">with</span> <span class="n">out</span><span class="p">:</span>
+        <span class="n">clear_output</span><span class="p">(</span><span class="n">wait</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">13</span><span class="p">,</span> <span class="mi">10</span><span class="p">))</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">patch</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#0d0d1a&#39;</span><span class="p">)</span>
+
+        <span class="n">ax_d</span> <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.55</span><span class="p">,</span> <span class="mf">0.90</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">])</span>
+        <span class="n">ax1</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.07</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.42</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">])</span>
+        <span class="n">ax2</span>  <span class="o">=</span> <span class="n">fig</span><span class="o">.</span><span class="n">add_axes</span><span class="p">([</span><span class="mf">0.57</span><span class="p">,</span> <span class="mf">0.08</span><span class="p">,</span> <span class="mf">0.42</span><span class="p">,</span> <span class="mf">0.38</span><span class="p">])</span>
+
+        <span class="n">ax_d</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">)</span>
+        <span class="n">kresli_diagram</span><span class="p">(</span><span class="n">ax_d</span><span class="p">,</span> <span class="n">F_m_diag</span><span class="p">,</span> <span class="n">F_v_diag</span><span class="p">,</span> <span class="n">F_val_d</span><span class="p">,</span> <span class="n">v_max</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)</span>
+
+        <span class="c1"># Graf síl</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#0d0d1a&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_motor</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00BFFF&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Hnacia sila&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_vzduch</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF4444&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Aerodyn. odpor&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_valivý</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FFA500&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+                 <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Valivý odpor&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_odpor</span><span class="p">,</span>  <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF0000&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.0</span><span class="p">,</span>
+                 <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;:&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Celkový odpor&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">v_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FFD700&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;v_max ≈ </span><span class="si">{</span><span class="n">v_max</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> km/h&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_motor</span><span class="p">,</span> <span class="n">F_odpor</span><span class="p">,</span>
+                         <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">F_motor</span> <span class="o">&gt;=</span> <span class="n">F_odpor</span><span class="p">),</span>
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00BFFF&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zóna zrýchlenia&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">F_motor</span><span class="p">,</span> <span class="n">F_odpor</span><span class="p">,</span>
+                         <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">F_motor</span> <span class="o">&lt;</span> <span class="n">F_odpor</span><span class="p">),</span>
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.10</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF4444&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zóna spomalenia&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Rýchlosť (km/h)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#cccccc&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Sila (N)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#cccccc&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Silová analýza&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span>
+                   <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.12</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_ylim</span><span class="p">(</span><span class="n">bottom</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax1</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#aaaaaa&#39;</span><span class="p">)</span>
+
+        <span class="c1"># Graf zrýchlenia</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_facecolor</span><span class="p">(</span><span class="s1">&#39;#0d0d1a&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00FF88&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">2.5</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">y</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.4</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">axvline</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">v_max</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FFD700&#39;</span><span class="p">,</span> <span class="n">lw</span><span class="o">=</span><span class="mf">1.8</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;--&#39;</span><span class="p">,</span>
+                    <span class="n">alpha</span><span class="o">=</span><span class="mf">0.8</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;v_max ≈ </span><span class="si">{</span><span class="n">v_max</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> km/h&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">a</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#00FF88&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Zrýchlenie&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">fill_between</span><span class="p">(</span><span class="n">v_kmh</span><span class="p">,</span> <span class="n">a</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">where</span><span class="o">=</span><span class="p">(</span><span class="n">a</span> <span class="o">&lt;</span> <span class="mi">0</span><span class="p">),</span>
+                         <span class="n">alpha</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#FF4444&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Spomalenie&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;Rýchlosť (km/h)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#cccccc&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Zrýchlenie (m/s²)&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;#cccccc&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Zrýchlenie vozidla&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">,</span> <span class="n">facecolor</span><span class="o">=</span><span class="s1">&#39;#1a1a2e&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;#555555&#39;</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">grid</span><span class="p">(</span><span class="kc">True</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.12</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">set_xlim</span><span class="p">(</span><span class="n">left</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+        <span class="n">ax2</span><span class="o">.</span><span class="n">tick_params</span><span class="p">(</span><span class="n">colors</span><span class="o">=</span><span class="s1">&#39;#aaaaaa&#39;</span><span class="p">)</span>
+
+        <span class="n">fig</span><span class="o">.</span><span class="n">suptitle</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s1">&#39;Dynamika vozidla  │  m = </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s1"> kg  │  P = </span><span class="si">{</span><span class="n">P_kW</span><span class="si">}</span><span class="s1"> kW (</span><span class="si">{</span><span class="n">P_kW</span><span class="o">*</span><span class="mf">1.36</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> PS)&#39;</span>
+            <span class="sa">f</span><span class="s1">&#39;  │  Cd = </span><span class="si">{</span><span class="n">Cd</span><span class="si">}</span><span class="s1">  │  v_max ≈ </span><span class="si">{</span><span class="n">v_max</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> km/h&#39;</span><span class="p">,</span>
+            <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;white&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">0.97</span>
+        <span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;═&quot;</span><span class="o">*</span><span class="mi">48</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Hmotnosť:            </span><span class="si">{</span><span class="n">m</span><span class="si">}</span><span class="s1"> kg&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Výkon motora:        </span><span class="si">{</span><span class="n">P_kW</span><span class="si">}</span><span class="s1"> kW  (</span><span class="si">{</span><span class="n">P_kW</span><span class="o">*</span><span class="mf">1.36</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> PS)&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Koef. odporu Cd:     </span><span class="si">{</span><span class="n">Cd</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Valivý odpor μ:      </span><span class="si">{</span><span class="n">mu</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;─&quot;</span><span class="o">*</span><span class="mi">48</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;  Maximálna rýchlosť:  ≈ </span><span class="si">{</span><span class="n">v_max</span><span class="si">:</span><span class="s1">.0f</span><span class="si">}</span><span class="s1"> km/h&#39;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="s2">&quot;═&quot;</span><span class="o">*</span><span class="mi">48</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+
+
+<span class="n">widgets</span><span class="o">.</span><span class="n">interact</span><span class="p">(</span>
+    <span class="n">zobraz</span><span class="p">,</span>
+    <span class="n">m</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mi">1400</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">800</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">3500</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">50</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Hmotnosť (kg):&#39;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;150px&#39;</span><span class="p">},</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">)),</span>
+    <span class="n">P_kW</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">IntSlider</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mi">400</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Výkon (kW):&#39;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;150px&#39;</span><span class="p">},</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">)),</span>
+    <span class="n">Cd</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">0.30</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.15</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.60</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.01</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Koef. odporu Cd:&#39;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;150px&#39;</span><span class="p">},</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">)),</span>
+    <span class="n">mu</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">FloatSlider</span><span class="p">(</span>
+        <span class="n">value</span><span class="o">=</span><span class="mf">0.015</span><span class="p">,</span> <span class="nb">min</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span> <span class="nb">max</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">step</span><span class="o">=</span><span class="mf">0.005</span><span class="p">,</span>
+        <span class="n">description</span><span class="o">=</span><span class="s1">&#39;Valivý odpor μ:&#39;</span><span class="p">,</span>
+        <span class="n">style</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;description_width&#39;</span><span class="p">:</span> <span class="s1">&#39;150px&#39;</span><span class="p">},</span>
+        <span class="n">layout</span><span class="o">=</span><span class="n">widgets</span><span class="o">.</span><span class="n">Layout</span><span class="p">(</span><span class="n">width</span><span class="o">=</span><span class="s1">&#39;500px&#39;</span><span class="p">))</span>
+<span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">out</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "582b77896d044e78a0c1b007704741e1", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<script type="application/vnd.jupyter.widget-view+json">{"model_id": "2f9ea074d80d4281bf148d22973f27b5", "version_major": 2, "version_minor": 0}</script></div>
+</div>
+</section>
+<section id="Záver">
+<h3>Záver<a class="headerlink" href="#Záver" title="Link to this heading">#</a></h3>
+<p>Tento notebook ukázal ako Newtonove zákony opisujú pohyb reálneho vozidla.</p>
+<ul class="simple">
+<li><p>Hnacia sila klesá s rastúcou rýchlosťou, aerodynamický odpor naopak rastie kvadraticky</p></li>
+<li><p>Maximálna rýchlosť nastane keď sa hnacia sila a celkový odpor vyrovnajú</p></li>
+<li><p>Ťažšie vozidlo dosahuje nižšie zrýchlenie pri rovnakom výkone motora</p></li>
+<li><p>Aerodynamický odpor pri vysokých rýchlostiach dominuje nad ostatnými odpormi</p></li>
+</ul>
+</section>
+</section>
+</section>
+
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item"><div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Obsah
+  </div>
+  <nav id="pst-page-toc-nav" class="page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Dynamika-sa-zaoberá-príčinami-pohybu,-teda-silami-ktoré-pohyb-spôsobujú-alebo-brzdia.-V-tomto-notebooku-aplikujeme-Newtonove-zákony-na-reálne-vozidlo-a-skúmame-vzťah-medzi-silou,-hmotnosťou-a-zrýchlením.">Dynamika sa zaoberá príčinami pohybu, teda silami ktoré pohyb spôsobujú alebo brzdia. V tomto notebooku aplikujeme Newtonove zákony na reálne vozidlo a skúmame vzťah medzi silou, hmotnosťou a zrýchlením.</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Teoretický-základ">Teoretický základ</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#Na-pohybujúce-sa-vozidlo-pôsobia-tri-hlavné-sily:">Na pohybujúce sa vozidlo pôsobia tri hlavné sily:</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Interaktívna-analýza-síl">Interaktívna analýza síl</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#Záver">Záver</a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+Autor: Matej Krempaský
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Matej Krempaský.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
