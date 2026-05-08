@@ -21,5 +21,7 @@ extensions = [
 language = 'sk'
 
 html_theme = 'sphinx_rtd_theme'
-html_static_path = ['_static']
+html_static_path = ['static']
 exclude_patterns = ['_build', '**/_build/**']
+html_static_path = ['static']
+html_theme_options = {}
